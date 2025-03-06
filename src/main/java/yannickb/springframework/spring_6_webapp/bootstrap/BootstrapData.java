@@ -22,14 +22,14 @@ public class BootstrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Author author = new Author();
         author.setFirstName("Yannick");
-        author.setLaastName("Bihege");
+        author.setLastName("Bihege");
         Book book = new Book();
         book.setTitle("Domain Driven Design");
         book.setName("Edition Xlo Domain Driven Design");
 
         Author author1 = new Author();
         author1.setFirstName("Heaven");
-        author1.setLaastName("Keita");
+        author1.setLastName("Keita");
         Book book1 = new Book();
         book1.setName("Edition clio Testing high performance applications");
         book1.setTitle("Testing hiogh performance applications");

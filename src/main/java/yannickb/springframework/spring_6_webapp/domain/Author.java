@@ -13,7 +13,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
-    private String laastName;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
     private Set <Book> books;
@@ -42,24 +42,24 @@ public class Author {
         this.firstName = firstName;
     }
 
-    public String getLaastName() {
-        return laastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLaastName(String laastName) {
-        this.laastName = laastName;
+    public void setLastName(String laastName) {
+        this.lastName = laastName;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return Objects.equals(getId(), author.getId()) && Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLaastName(), author.getLaastName()) && Objects.equals(getBooks(), author.getBooks());
+        return Objects.equals(getId(), author.getId()) && Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLastName(), author.getLastName()) && Objects.equals(getBooks(), author.getBooks());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLaastName(), getBooks());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getBooks());
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Author {
         return "Author{" +
                "id=" + id +
                ", firstName='" + firstName + '\'' +
-               ", laastName='" + laastName + '\'' +
+               ", laastName='" + lastName + '\'' +
                ", books=" + books +
                '}';
     }
