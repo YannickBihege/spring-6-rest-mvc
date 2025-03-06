@@ -2,6 +2,7 @@ package yannickb.springframework.spring_6_webapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -47,5 +48,27 @@ public class Author {
 
     public void setLaastName(String laastName) {
         this.laastName = laastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(getId(), author.getId()) && Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLaastName(), author.getLaastName()) && Objects.equals(getBooks(), author.getBooks());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLaastName(), getBooks());
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+               "id=" + id +
+               ", firstName='" + firstName + '\'' +
+               ", laastName='" + laastName + '\'' +
+               ", books=" + books +
+               '}';
     }
 }

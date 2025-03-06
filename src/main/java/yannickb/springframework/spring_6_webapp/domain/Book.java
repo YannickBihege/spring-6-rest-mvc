@@ -3,6 +3,7 @@ package yannickb.springframework.spring_6_webapp.domain;
 import jakarta.persistence.*;
 import org.apache.logging.log4j.message.StringFormattedMessage;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -49,5 +50,27 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(getId(), book.getId()) && Objects.equals(getTitle(), book.getTitle()) && Objects.equals(getName(), book.getName()) && Objects.equals(getAuthors(), book.getAuthors());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getName(), getAuthors());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+               "id=" + id +
+               ", title='" + title + '\'' +
+               ", name='" + name + '\'' +
+               ", authors=" + authors +
+               '}';
     }
 }
